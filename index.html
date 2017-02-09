@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Presentación para la posible arquitectura Nimbox | 0.1</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>
+						Posible arquitectura de Nimbox.
+					</h3>
+					<p></p>
+				</section>
+				<section>
+					<p>
+						Diseño
+					</p>
+					<img src="img/Diagrama1.svg ">
+				</section>
+				<section>
+					<section>
+						<h3>Diseño.</h3>
+							<p>Basado en: "Service-Oriented Architecture.</p>
+					</section>
+					<section>
+						<h3>
+							¿Por qué SOA?
+						</h3>
+						<p>
+							Básicamente porque, queremos un sistema distribuido.
+						</p>
+						<small class="fragment fade-up">
+							De monitoreo...
+						</small>
+					</section>
+					<section>
+						<p>Ahora en serio...</p>
+						<ul>
+							<li>Independencia.</li>
+							<li>Reemplazo de funciones.</li>
+							<li>Aislar problemas.</li>
+							<li>Facilidad.</li>
+							<li>Minimización del riesgo de tiempo de inactividad.</li>
+							<li>Toma de decisiones.</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>¿Cómo sería la estructura?</h3>
+						<h4>Nodo central.</h4>
+						<h4>Compuesto por un Nagios Central.</h4>
+						<img src="img/Paquete-central.svg">
+					</section>
+					<section>
+						<h4>¿Por qué?</h4>
+						<ul>
+							<li>Independencia.</li>
+							<li>Hacer un paquete único.</li>
+							<li>Escalabilidad Horizontal.</li>
+							<li>única configuración.</li>
+							<li>Disponibilidad.</li>
+							<li>Según yo.</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Contendrá:</h4>
+						<ul>
+							<li>Docker</li>
+							<li>Kubernetes</li>
+							<li>Nagios</li><small>Por ahora...</small>
+							<li>*Pasivo*</li>
+							<li>Plugins (Nagios)</li>
+						</ul>
+					</section>
+					<section>
+						<h4>¿Por qué de lo anterior?</h4>
+						<p>Docker: La portabilidad. Separación. Posibilidad de trabajar diferentes versiones de apps...</p>
+						<p>Kubernetes: Orquestación. Es quien manejará la escalabilidad. Integración con Docker.</p>
+						<p>Nagios: En algún momento Nimbox confió en el... </p>
+					</section>
+					<section>
+						<h4>Requerimientos:</h4>
+						<img src="img/relacion.png">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>¿Cómo sería la estructura?</h3>
+						<h4>Nodo Worker.</h4>
+						<h4>Básicamente, un Nagios hijo.</h4>
+						<img src="img/worker.svg">
+					</section>
+					<section>
+						<h4>¿Por qué?</h4>
+						<ul>
+							<li>Independencia.</li>
+							<li>Hacer un paquete.</li>
+							<li>Escalabilidad Horizontal.</li>
+							<li>Configuración dependiente.</li>
+							<li>Disponibilidad.</li>
+							<li>Según yo.</li>
+							<li>Activo.</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Contendrá:</h4>
+						<ul>
+							<li>Docker</li>
+							<li>Nagios</li>*Activo*
+							<li>Plugins (Nagios)</li>
+						</ul>
+					</section>
+					<section>
+						<h4>¿Por qué de lo anterior?</h4>
+						<p>Nagios: En algún momento Nimbox confió en el... </p>
+						<p>La idea es no tener muchas configuraciones regadas.</p>
+						<p>De esta forma, delegando en Kubernetes, la  disponibilidad, conexiones, entre otras, no necesitamos más.</p>
+						<p><b>Importante:</b>Aislar problemas.</p>
+					</section>
+					<section>
+						<h4>Requerimientos:</h4>
+						<img src="img/relacion.png">
+					</section>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
