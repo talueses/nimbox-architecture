@@ -176,6 +176,35 @@
 						<h3>O podemos adoptar Nagios, desde su código fuente.</h3>
 					</section>
 				</section>
+
+				 <!-- Versión 0.2 -->
+				<section>
+					<section>
+						<h3>Mod-Gearman</h3>
+						<p>Es un modelo basado en plugins.</p>
+						<p>Gearman.</p>
+					</section>
+					<section>
+						<section>
+							<h3>¿Qué es gearman?</h3>
+							<p>Gearman provides a generic application framework to farm out work to other machines or processes that are better suited to do the work. It allows you to do work in parallel, to load balance processing, and to call functions between languages.</p>
+						</section>
+					</section>
+					<section>
+						<h3>Así es el modelo de Gearman</h3>
+						<img src="img/stack.png">
+					</section>
+					<section>
+						<h3>Así funciona</h3>
+						<img src="img/cluster.png">
+					</section>
+					<section>
+						<h3>Así funciona Gearman:</h3>
+						<p>Por defecto, crea una conexión usando el protocolo TCP, por el pueto 4730. Y la comunicación es, como la imagen anterior.</p>
+						<p>Todos los paquetes, enviados desde el "job server" son tomados como una respuesta. Y si es al "job server" es una petición.</p>
+						<p>Todas estas comunicaciones entre el servidor y los workers es en <small>binario.</small></p>
+					</section>
+				</section>
 				<section>
 					<section>
 						<h4>Eventos:</h4>
