@@ -204,6 +204,26 @@
 						<p>Todos los paquetes, enviados desde el "job server" son tomados como una respuesta. Y si es al "job server" es una petición.</p>
 						<p>Todas estas comunicaciones entre el servidor y los workers es en <small>binario.</small></p>
 					</section>
+					<section>
+						<h3>Pros:</h3>
+						<ul>
+							<li>Balance - Carga</li>
+							<li>1 Configuración.</li>
+							<li>Comunicación 2 way.</li>
+							<li>Evita un posible embudo.(?)</li>
+							<li>Escalabilidad.</li>
+							<li>Poder modificar el servidor de cola.</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Contra:</h3>
+						<ul>
+							<li>Instalación de plugins en Workers</li>
+							<li>No hay monitoreo para Workers.</li>
+							<li>Posible embudo.(?)</li>
+							<li>Recursos.</li>
+						</ul>
+					</section>
 				</section>
 				<section>
 					<section>
